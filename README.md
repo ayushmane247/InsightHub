@@ -23,10 +23,6 @@ A **Streamlit-based web app** that enables users to upload, clean, analyze, and 
 
 ## 🛠️ Getting Started
 
-### 📦 Prerequisites
-
-Ensure you have **Python 3.10+** and `pip` installed.
-
 ### ⚙️ Installation
 
 1. **Clone the repository**
