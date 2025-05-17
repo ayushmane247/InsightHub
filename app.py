@@ -1,59 +1,66 @@
 import streamlit as st
-from data_handler import preprocess_store_sales
-import pandas as pd
+import base64
+import os
 
-# --- File Purpose ---
-# Main Streamlit app that provides an interface for users to upload sales data,
-# clean it, visualize trends, filter data by date, and download cleaned results.
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-st.set_page_config(page_title="InsightHub - Sales Data Analysis", layout="wide")
+# Make sure the image file is in the same directory as app.py
+IMAGE_PATH = os.path.join(os.path.dirname(__file__), "bg.jpg")
 
-st.title("📊 InsightHub: Sales Data Cleaning & Visualization")
-st.markdown("Upload your store sales data, clean it, and get insightful visualizations!")
+# Get base64 of the image
+img_base64 = get_base64_of_bin_file(IMAGE_PATH)
 
-uploaded_file = st.file_uploader("Upload Excel or CSV sales data", type=['xlsx', 'csv'])
+# Page config
+st.set_page_config(page_title="InsightHub Home", layout="wide", initial_sidebar_state="collapsed")
 
-if uploaded_file:
-    try:
-        sales_data = preprocess_store_sales(uploaded_file)
+# CSS with embedded base64 background image
+page_bg_img = f"""
+<style>
+.stApp {{
+    background-image: url("data:image/jpg;base64,{img_base64}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}}
+.big-title {{
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 5px #000;
+    margin-bottom: 20px;
+    text-align: center;
+}}
+.login-box {{
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}}
+</style>
+"""
 
-        st.subheader("Cleaned & Aggregated Sales Data")
-        st.dataframe(sales_data)
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
-        min_date, max_date = sales_data['date'].min(), sales_data['date'].max()
-        date_range = st.date_input(
-            "Filter by Date Range",
-            value=(min_date, max_date),
-            min_value=min_date,
-            max_value=max_date
-        )
+# Title
+st.markdown("<div class='big-title'>👋 Welcome to InsightHub</div>", unsafe_allow_html=True)
 
-        filtered_data = sales_data[
-            (sales_data['date'] >= pd.to_datetime(date_range[0])) &
-            (sales_data['date'] <= pd.to_datetime(date_range[1]))
-        ]
+# Login Box UI
+with st.container():
+    st.markdown("<div class='login-box'>", unsafe_allow_html=True)
 
-        st.subheader("Visualizations")
-        vis_type = st.selectbox("Choose Visualization Type", ['Line Chart', 'Bar Chart', 'Area Chart'])
+    st.subheader("🔐 Login to Start")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
 
-        if vis_type == 'Line Chart':
-            st.line_chart(filtered_data.set_index('date'))
-        elif vis_type == 'Bar Chart':
-            st.bar_chart(filtered_data.set_index('date'))
-        elif vis_type == 'Area Chart':
-            st.area_chart(filtered_data.set_index('date'))
+    if st.button("🚀 Continue to InsightHub"):
+        if username and password:
+            st.success("Login successful! Please go to 📊 Dashboard tab in the sidebar.")
+            st.markdown("✅ You can now access the full app from the sidebar.")
+        else:
+            st.error("Please enter both username and password.")
 
-        csv_data = filtered_data.to_csv(index=False).encode('utf-8')
-
-        st.download_button(
-            "📥 Download Cleaned Data CSV",
-            data=csv_data,
-            file_name='cleaned_sales_data.csv',
-            mime='text/csv'
-        )
-
-    except Exception as e:
-        st.error(f"Error processing file: {e}")
-
-else:
-    st.info("Upload an Excel or CSV file to start analyzing your sales data.")
+    st.markdown("</div>", unsafe_allow_html=True)
