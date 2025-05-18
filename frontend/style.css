@@ -52,10 +52,12 @@ body, html {
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0px 0px 15px rgba(0,255,255,0.6);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
 }
 
 .dive-button:hover {
     transform: scale(1.1);
     background-color: #00ffff;
+    box-shadow: 0px 0px 25px rgba(0,255,255,0.9);
 }
