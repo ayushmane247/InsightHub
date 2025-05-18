@@ -1,66 +1,79 @@
 import streamlit as st
-import base64
-import os
+import pandas as pd
+from data_handler import read_selected_sheet, get_sheet_names, preprocess_store_sales
 
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+st.set_page_config(page_title="InsightHub Dashboard", layout="wide")
 
-# Make sure the image file is in the same directory as app.py
-IMAGE_PATH = os.path.join(os.path.dirname(__file__), "bg.jpg")
+# Sidebar navigation
+st.sidebar.title("InsightHub Menu")
+menu = st.sidebar.radio("Go to", ["Home", "Upload Data", "Trends & Summary", "ML Predictor", "Plots & Graphs"])
 
-# Get base64 of the image
-img_base64 = get_base64_of_bin_file(IMAGE_PATH)
-
-# Page config
-st.set_page_config(page_title="InsightHub Home", layout="wide", initial_sidebar_state="collapsed")
-
-# CSS with embedded base64 background image
-page_bg_img = f"""
+# CSS Styling for hover effects & buttons
+st.markdown("""
 <style>
-.stApp {{
-    background-image: url("data:image/jpg;base64,{img_base64}");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}}
-.big-title {{
-    font-size: 3rem;
-    color: white;
-    text-shadow: 2px 2px 5px #000;
-    margin-bottom: 20px;
-    text-align: center;
-}}
-.login-box {{
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 2rem;
-    border-radius: 1rem;
-    max-width: 400px;
-    margin: 0 auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}}
+    .stButton>button {
+        background: linear-gradient(90deg, #00ffff 0%, #00b3b3 100%);
+        color: black;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 0.75em 1.5em;
+        transition: transform 0.3s ease;
+    }
+    .stButton>button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(90deg, #00b3b3 0%, #00ffff 100%);
+        color: white;
+    }
 </style>
-"""
+""", unsafe_allow_html=True)
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
+def load_and_preprocess():
+    uploaded_file = st.file_uploader("Upload CSV or Excel file", type=["csv", "xlsx"])
+    if uploaded_file:
+        sheet_names = get_sheet_names(uploaded_file)
+        sheet = None
+        if sheet_names:
+            sheet = st.selectbox("Select sheet", sheet_names)
+        try:
+            df = read_selected_sheet(uploaded_file, sheet)
+            df = preprocess_store_sales(df)
+            st.success("File loaded and preprocessed successfully!")
+            st.dataframe(df.head(10))
+            return df
+        except Exception as e:
+            st.error(f"Error: {e}")
+    return None
 
-# Title
-st.markdown("<div class='big-title'>👋 Welcome to InsightHub</div>", unsafe_allow_html=True)
+# Home page
+if menu == "Home":
+    st.title("👋 Welcome to InsightHub")
+    st.write("""
+        This is your all-in-one multi-domain data analysis platform.
+        
+        Use the sidebar to navigate through data upload, explore trends, build ML models, and visualize insights.
+    """)
 
-# Login Box UI
-with st.container():
-    st.markdown("<div class='login-box'>", unsafe_allow_html=True)
+# Upload Data page
+elif menu == "Upload Data":
+    st.header("Upload your data")
+    df = load_and_preprocess()
+    if df is not None:
+        st.write("Data preview:")
+        st.dataframe(df.head())
 
-    st.subheader("🔐 Login to Start")
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
+# Trends & Summary
+elif menu == "Trends & Summary":
+    st.header("Trends & Summary")
+    st.info("Upload data first on the Upload Data page.")
+    # Placeholder for actual summary logic and charts
 
-    if st.button("🚀 Continue to InsightHub"):
-        if username and password:
-            st.success("Login successful! Please go to 📊 Dashboard tab in the sidebar.")
-            st.markdown("✅ You can now access the full app from the sidebar.")
-        else:
-            st.error("Please enter both username and password.")
+# ML Predictor
+elif menu == "ML Predictor":
+    st.header("Machine Learning Predictor")
+    st.info("ML functionality coming soon!")
 
-    st.markdown("</div>", unsafe_allow_html=True)
+# Plots & Graphs
+elif menu == "Plots & Graphs":
+    st.header("Visualizations")
+    st.info("Visualizations will appear here after data upload.")
+
