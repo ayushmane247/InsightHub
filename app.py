@@ -1,79 +1,66 @@
 import streamlit as st
-import pandas as pd
-from data_handler import read_selected_sheet, get_sheet_names, preprocess_store_sales
+from login_handler import login_ui, logout
+from file_upload_ui import file_upload_flow
+from plot_generator import show_visualizations
+from ml_predictor import ml_predict
 
-st.set_page_config(page_title="InsightHub Dashboard", layout="wide")
+def render_dashboard():
+    st.sidebar.title("📂 InsightHub Menu")
+    page = st.sidebar.radio(
+        "Go to",
+        ["🏠 Home", "📁 Upload Data", "📈 Trends", "🤖 ML Predictor", "📊 Visualizations", "🚪 Logout"],
+        index=0,
+        key="menu_radio"
+    )
 
-# Sidebar navigation
-st.sidebar.title("InsightHub Menu")
-menu = st.sidebar.radio("Go to", ["Home", "Upload Data", "Trends & Summary", "ML Predictor", "Plots & Graphs"])
+    if page == "🚪 Logout":
+        logout()
+        st.experimental_rerun()
 
-# CSS Styling for hover effects & buttons
-st.markdown("""
-<style>
-    .stButton>button {
-        background: linear-gradient(90deg, #00ffff 0%, #00b3b3 100%);
-        color: black;
-        font-weight: bold;
-        border-radius: 10px;
-        padding: 0.75em 1.5em;
-        transition: transform 0.3s ease;
-    }
-    .stButton>button:hover {
-        transform: scale(1.05);
-        background: linear-gradient(90deg, #00b3b3 0%, #00ffff 100%);
-        color: white;
-    }
-</style>
-""", unsafe_allow_html=True)
+    if page == "🏠 Home":
+        st.header("👋 Welcome to InsightHub")
+        st.markdown(
+            """
+            Your all-in-one multi-domain data analysis platform.  
+            Navigate using the sidebar to:
+            - Upload datasets
+            - Explore trends
+            - Predict outcomes using ML
+            - Visualize insights
+            """
+        )
 
-def load_and_preprocess():
-    uploaded_file = st.file_uploader("Upload CSV or Excel file", type=["csv", "xlsx"])
-    if uploaded_file:
-        sheet_names = get_sheet_names(uploaded_file)
-        sheet = None
-        if sheet_names:
-            sheet = st.selectbox("Select sheet", sheet_names)
-        try:
-            df = read_selected_sheet(uploaded_file, sheet)
-            df = preprocess_store_sales(df)
-            st.success("File loaded and preprocessed successfully!")
-            st.dataframe(df.head(10))
-            return df
-        except Exception as e:
-            st.error(f"Error: {e}")
-    return None
+    elif page == "📁 Upload Data":
+        st.header("Upload your Data")
+        data = file_upload_flow(key="upload")
+        if data is not None:
+            st.subheader("🔍 Data Preview")
+            st.dataframe(data.head())
 
-# Home page
-if menu == "Home":
-    st.title("👋 Welcome to InsightHub")
-    st.write("""
-        This is your all-in-one multi-domain data analysis platform.
-        
-        Use the sidebar to navigate through data upload, explore trends, build ML models, and visualize insights.
-    """)
+    elif page == "📈 Trends":
+        st.header("Trends & Insights")
+        data = file_upload_flow(key="trends")
+        if data is not None:
+            show_visualizations(data)
 
-# Upload Data page
-elif menu == "Upload Data":
-    st.header("Upload your data")
-    df = load_and_preprocess()
-    if df is not None:
-        st.write("Data preview:")
-        st.dataframe(df.head())
+    elif page == "🤖 ML Predictor":
+        st.header("Machine Learning Predictor")
+        data = file_upload_flow(key="ml")
+        if data is not None:
+            ml_predict(data)
+        else:
+            st.info("Upload data to use ML predictor.")
 
-# Trends & Summary
-elif menu == "Trends & Summary":
-    st.header("Trends & Summary")
-    st.info("Upload data first on the Upload Data page.")
-    # Placeholder for actual summary logic and charts
+    elif page == "📊 Visualizations":
+        st.header("Custom Visualizations")
+        data = file_upload_flow(key="viz")
+        if data is not None:
+            show_visualizations(data)
 
-# ML Predictor
-elif menu == "ML Predictor":
-    st.header("Machine Learning Predictor")
-    st.info("ML functionality coming soon!")
+def main():
+    # Call your login UI first - implement user sessions etc. inside login_ui()
+    if login_ui():
+        render_dashboard()
 
-# Plots & Graphs
-elif menu == "Plots & Graphs":
-    st.header("Visualizations")
-    st.info("Visualizations will appear here after data upload.")
-
+if __name__ == "__main__":
+    main()

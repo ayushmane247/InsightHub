@@ -3,48 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="InsightHub is a web application providing multi-domain data analysis and visualization tools with interactive dashboards." />
-  <title>InsightHub - Multi-domain Data Analysis</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Preconnect for faster font loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="theme-color" content="#0f001a" />
+  <meta property="og:title" content="InsightHub - Multi-domain Data Analysis" />
+  <meta property="og:description" content="Explore trends, visualize insights, and predict with ML-all in one platform." />
+  <meta property="og:image" content="https://yourdomain.com/assets/social-preview.png" />
+  <meta property="og:url" content="https://insighthub.tech/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>InsightHub</title>
+  <link rel="icon" href="assets/favicon.gif" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+    }
+    #vanta-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+    .center-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 0 10px #f0f;
+    }
+    .center-text h1 {
+      font-size: 3rem;
+    }
 
-  <link rel="stylesheet" href="style.css" />
+    /* Loader styles */
+    .loader {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 8px solid rgba(255, 255, 255, 0.2);
+      border-top: 8px solid #9c27b0;
+      border-radius: 50%;
+      width: 60px; height: 60px;
+      animation: spin 1s linear infinite;
+      z-index: 100;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Hide loader after Vanta is ready */
+    body.loaded .loader {
+      display: none;
+    }
+  </style>
 </head>
-<body class="fade-in">
-
+<body>
   <div id="vanta-bg"></div>
+  <div class="loader"></div>
+  <div class="center-text">
+    <h1>Welcome to InsightHub</h1>
+    <p>Multi-domain Data Analytics Platform</p>
+  </div>
 
-  <main class="center-content">
-    <!-- Logo -->
-    <div class="logo-container">
-      <img src="assets/logo.png" alt="InsightHub logo — Multi-domain Data Analysis platform" class="logo" />
-    </div>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      VANTA.NET({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x9c27b0,
+        backgroundColor: 0x0f001a,
+        points: 12.00,
+        maxDistance: 20.00,
+        spacing: 18.00
+      });
 
-    <!-- Title -->
-    <h1 class="title">InsightHub: Multi-domain Data Analysis WebApp</h1>
-
-    <!-- CTA Button -->
-    <a href="https://insightapp-5lhgycigtbsfthsv9sn95t.streamlit.app/"
-       class="dive-button fade-in delay"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Open InsightHub web application in a new tab">
-       Let's Dive Into Data Analysis
-    </a>
-
-    <!-- Description -->
-    <p class="description" style="margin-top: 1.5rem;">
-      A web application that provides a comprehensive platform for analyzing and visualizing data across multiple domains.
-    </p>
-  </main>
-
-  <!-- Scripts with defer for better performance -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js" defer></script>
-  <script src="script.js" defer></script>
+      // Mark body as loaded once Vanta initializes
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 1500); // Delay to simulate Vanta readiness
+    });
+  </script>
 </body>
 </html>
