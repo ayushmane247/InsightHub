@@ -2,9 +2,9 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&style=for-the-badge)](https://www.python.org/)  
 [![Streamlit](https://img.shields.io/badge/Streamlit-%E2%9D%A4-red?logo=streamlit&style=for-the-badge)](https://streamlit.io/)  
-[![GitHub issues](https://img.shields.io/github/issues/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayush942066/InsightHub/issues)  
-[![GitHub forks](https://img.shields.io/github/forks/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayush942066/InsightHub/network)  
-[![GitHub stars](https://img.shields.io/github/stars/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayush942066/InsightHub/stargazers)  
+[![GitHub issues](https://img.shields.io/github/issues/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayushmane247/InsightHub/issues)  
+[![GitHub forks](https://img.shields.io/github/forks/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayushmane247/InsightHub/network)  
+[![GitHub stars](https://img.shields.io/github/stars/ayush942066/InsightHub?style=for-the-badge)](https://github.com/ayushmane247/InsightHub/stargazers)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
@@ -45,7 +45,7 @@ Perfect for anyone who loves making data-driven decisions without drowning in me
 
 1️⃣ **Clone the repo**  
 ```bash
-git clone https://github.com/ayush942066/InsightHub.git
+git clone https://github.com/ayushmane247/InsightHub
 cd InsightHub
 
 2️⃣ Create & activate a Python virtual environment
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 4️⃣ Run the app
 
 streamlit run app.py
-Open your browser at http://localhost:8501 and enjoy!
+Open your browser at http://localhost:xxxx and enjoy!
 
 ✅ To-Do & Enhancements
 
