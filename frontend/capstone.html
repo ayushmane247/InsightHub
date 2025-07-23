@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insight Hub</title>
+    <link rel="stylesheet" href="capstone.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo-container">
+        <img src="../assets/logo.png" alt="Logo" class="logo" />
+        <span class="project-title">Insight Hub</span>
+      </div>
+      <nav class="nav">
+        <div class="dropdown" id="objectives-menu">
+          <button onclick="toggleDropdown('objectives')" class="dropdown-button">
+            Objectives
+          </button>
+          <div id="dropdown-objectives" class="dropdown-content hidden">
+            <h3 class="dropdown-title">Objectives of the Project</h3>
+            <ul class="dropdown-list">
+              <li>Provide Store sales Analytics and Insights.</li>
+              <li>Offer Machine Learning-based future sales forecasting.</li>
+              <li>Deliver an intuitive and user-friendly dashboard.</li>
+              <li>Enable users to make smarter business decisions.</li>
+              <li>Collect user feedback for continuous improvement.</li>
+            </ul>
+          </div>
+        </div>
+        <style>
+        </style>
+        <div class="dropdown" id="members-menu">
+          <button onclick="toggleDropdown('members')" class="dropdown-button">
+            Team Members
+          </button>
+          <div id="dropdown-members" class="dropdown-content hidden">
+            <h3 class="dropdown-title">Team Members</h3>
+            <ul class="member-list">
+              <li class="member-item">
+                <img src="shreya.jpg" alt="Shreya Ghiwari" class="member-avatar" />
+                <div>
+                  <b>Shreya Ghiwari:</b>
+                  <div class="member-desc">
+                    Project lead & Management
+                  </div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="ayush.jpg" alt="Ayush Mane" class="member-avatar" />
+                <div>
+                  <b>Ayush Mane:</b>
+                  <div class="member-desc">
+                    Expert In Backend & Streamlit
+                  </div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="amruta.jpg" alt="Amruta Patil" class="member-avatar" />
+                <div>
+                  <b>Amruta Pangire:</b>
+                  <div class="member-desc">Backend & Streamlit</div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="navaj.jpg" alt="Navaj Shaikh" class="member-avatar" />
+                <div>
+                  <b>Navaj Shaikh:</b>
+                  <div class="member-desc">Data Collect & AI-Tool Handling</div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="deep.jpg" alt="Deep Santani" class="member-avatar" />
+                <div>
+                  <b>Deep Santani:</b>
+                  <div class="member-desc">Business Logic & Forecasting Lead</div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="arpana.jpg" alt="Arpana Chingale" class="member-avatar" />
+                <div>
+                  <b>Arpana Chingale:</b>
+                  <div class="member-desc">Frontend development.</div>
+                </div>
+              </li>
+              <li class="member-item">
+                <img src="pushkar.jpg" alt="Pushkar Mahadik" class="member-avatar" />
+                <div>
+                  <b>Pushkar Mahadik:</b>
+                  <div class="member-desc">Focuses on UI/UX design and frontend</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="dropdown" id="highlights-menu">
+          <button onclick="toggleDropdown('highlights')" class="dropdown-button">
+            Highlights
+          </button>
+          <div id="dropdown-highlights" class="dropdown-content hidden">
+            <h3 class="dropdown-title">Project Highlights</h3>
+            <div class="highlight-tabs">
+              <button
+                id="picTab"
+                onclick="showHighlightTab('pic')"
+                class="highlight-tab-button active"
+              >
+                Pictures
+              </button>
+              <button
+                id="vidTab"
+                onclick="showHighlightTab('vid')"
+                class="highlight-tab-button"
+              >
+                Videos
+              </button>
+            </div>
+            <div id="highlight-pic" class="highlight-section">
+              <div class="slideshow-container">
+                <img
+                  id="slideshow-img"
+                  src="../assets/highlight3.png"
+                  alt="Project Pic"
+                  class="slideshow-image"
+                />
+                <button onclick="prevSlide()" class="slideshow-control prev">
+                  <svg
+                    class="slideshow-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button onclick="nextSlide()" class="slideshow-control next">
+                  <svg
+                    class="slideshow-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p class="highlight-caption">Snapshots from our project journey.</p>
+            </div>
+            <div id="highlight-vid" class="highlight-section hidden">
+              <div class="video-container">
+                <video
+                  id="highlight-video"
+                  controls
+                  muted
+                  class="highlight-video"
+                >
+                  <source src="highlight1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <button onclick="toggleMute()" class="mute-button">
+                Unmute / Mute
+              </button>
+              <p class="highlight-caption">Watch our project in action!</p>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown" id="about-menu">
+          <button onclick="toggleDropdown('about')" class="dropdown-button">
+            About
+          </button>
+          <div id="dropdown-about" class="dropdown-content hidden">
+            <h3 class="dropdown-title">How to Use the App</h3>
+            <ul class="dropdown-list">
+              <li>Login to access the dashboard.</li>
+              <li>Explore interactive analytics and forecasts.</li>
+              <li>Use the feedback form for suggestions.</li>
+              <li>Contact us for support.</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="header-spacing"></div>
+
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="background-video"
+    >
+      <source src="../assets/bg4.mp4" type="video/mp4" />
+      <source src="../backvideo.webm" type="video/webm" />
+      <source src="../backvideo.mp4" type="video/mp4" />
+    
+    </video>
+
+    <section class="hero-section" data-aos="fade-up">
+      <img src="../assets/logo.png" alt="Logo" class="hero-logo" />
+      <h1 class="hero-title">
+        Welcome to
+        <span class="highlight-text">Insight Hub</span>
+      </h1>
+      <p class="hero-subtitle">
+        Gain actionable insights and forecast future trends across multiple sales
+        domains.
+      </p>
+    <button 
+        onclick="window.location.href='http://localhost:8501/'" 
+        class="login-button"
+    >
+      Go to Login Page
+    </button>
+      
+    </section>
+
+    <section class="features-section" data-aos="fade-up">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <p class="section-subtitle">
+          Interactive dashboards, future forecasting, and more!
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="feature-icon-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="feature-icon blue"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0v-2a2 2 0 012-2h2a2 2 0 012 2v2m-6 0V5a2 2 0 012-2h2a2 2 0 012 2v12"
+              />
+            </svg>
+          </div>
+          <h3 class="feature-title">Store Sales Analysis</h3>
+          <p class="feature-description">
+            Comprehensive analysis across various sales domains, providing a
+            holistic view of your business performance.
+          </p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="feature-icon-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="feature-icon green"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="16"
+                height="16"
+                rx="2"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+              />
+              <path
+                d="M9 9h6v6H9z"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <h3 class="feature-title">ML Forecasting</h3>
+          <p class="feature-description">
+            Advanced machine learning models for accurate future sales
+            forecasting, helping you anticipate market trends.
+          </p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="feature-icon-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="feature-icon yellow"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0zm6 13v-2a4 4 0 00-3-3.87M6 7a4 4 0 100 8 4 4 0 000-8z"
+              />
+            </svg>
+          </div>
+          <h3 class="feature-title">User-Friendly</h3>
+          <p class="feature-description">
+            Intuitive interface designed for easy navigation and understanding
+            for all users, regardless of technical expertise.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <section class="info-section" data-aos="fade-up">
+        <h1 class="info-title">Welcome to Insight Hub</h1>
+        <p class="info-subtitle">
+          Explore the future of intelligent sales analysis and forecasting powered
+          by ML and Data Science.
+        </p>
+      </section>
+
+      <section class="tech-stack-section" data-aos="fade-up">
+        <div class="card">
+          <h2 class="card-title">Project Scope</h2>
+          <ul class="card-list">
+            <li>Analyze sales data from various sources (e.g., Online Product Sales, Video-Game Sales).</li>
+            <li>Identify key performance indicators (KPIs) and trends.</li>
+            <li>Implement time series forecasting models for future sales.</li>
+            <li>Develop interactive dashboards for data exploration.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Tech Stack</h2>
+          <ul class="card-list">
+            <li>Frontend: HTML, CSS, JavaScript , Streamlit</li>
+            <li>Backend: Python </li>
+            <li>ML: Prophet, Scikit-learn, </li>
+            <li>Data Visualization: Plotly, Matplotlib , Seaborn , Pandas</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <section class="feedback-section" data-aos="fade-up">
+      <div class="feedback-container">
+        <h2 class="feedback-title">Feedback</h2>
+        <form class="feedback-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="feedback">Feedback</label>
+            <textarea id="feedback" name="feedback" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <div id="feedback-list"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Insight Hub. All rights reserved.</p>
+      <p>Made with ❤ by the Insight Hub Team</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="capstone.js"></script>
+  </body>
+</html>
