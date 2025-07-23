@@ -1,133 +1,135 @@
-```markdown
-# InsightHub 🛒📊
+# 🛒 InsightHub – Your Shop’s Smartest Business Partner 📊💡
 
-**A Smart, Storytelling Data Platform for Shopkeepers**
-
-[![GitHub](https://img.shields.io/github/stars/ayush942066/InsightHub?style=social)](https://github.com/ayushmane247)
+[![GitHub Stars](https://img.shields.io/github/stars/ayushmane247/InsightHub?style=social)](https://github.com/ayushmane247/InsightHub/stargazers)
+[![Forks](https://img.shields.io/github/forks/ayushmane247/InsightHub?style=social)](https://github.com/ayushmane247/InsightHub/fork)
+[![Python Version](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-orange)](https://streamlit.io)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Open Issues](https://img.shields.io/github/issues/ayushmane247/InsightHub)](https://github.com/ayushmane247/InsightHub/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/ayushmane247/InsightHub)](https://github.com/ayushmane247/InsightHub/pulls)
+[![Last Commit](https://img.shields.io/github/last-commit/ayushmane247/InsightHub)](https://github.com/ayushmane247/InsightHub/commits)
 
 ---
 
 ## 🚀 Overview
 
-**InsightHub** is an all-in-one, user-friendly data analytics and forecasting platform designed for small and medium shop owners. Born from real-world struggles with Excel chaos, InsightHub transforms raw sales and inventory data into actionable insights, future forecasts, and timely alerts—empowering shopkeepers to make smarter business decisions, effortlessly.
+**InsightHub** is a powerful, intuitive, and smart analytics + forecasting tool built for **local shopkeepers and small businesses**.
+
+No Excel chaos.  
+No technical complexity.  
+Just **actionable insights**, simple uploads, and clean dashboards.
+
+> Built with ❤️ for small retailers to grow with confidence, clarity, and control.
 
 ---
 
-## 🎬 The Story
+## 🎬 The Story Behind InsightHub
 
-> “Rajesh, a busy shopkeeper, was drowning in Excel sheets and sticky notes. He wished for a genie to make sense of his data. That’s when InsightHub was born—a platform that turns chaos into clarity, and numbers into business growth.”
+> “Meet Rajesh. Every night he’d sit with endless Excel sheets, trying to make sense of daily sales.  
+> He knew data held the answers—but had no idea where to begin.  
+> That’s when **InsightHub** was born.  
+> A tool not made for coders.  
+> A tool made for **people like Rajesh**.”
+
+InsightHub is more than a project — it's a **mission** to bring data intelligence to every shop, regardless of technical background.
+
+---
+
+## ✨ Features That Matter
+
+- 🔐 **Secure Login** – Custom login with hashed passwords  
+- 📁 **One-Click Upload** – Drop your Excel/CSV and go  
+- 📊 **Smart Dashboard** – Auto summaries, sales trends & top categories  
+- 📈 **Forecasting** – ML-powered sales prediction with Prophet, ARIMA & more  
+- 🚨 **Real-Time Alerts** – Stock drop, sales dips, slow movers  
+- 🕓 **Track Upload History** – Never lose track of your data  
+- 🧠 **No Tech Jargon** – Made with non-tech users in mind
 
 ---
 
-## ✨ Features
+## 🖼️ Live Demo (Coming Soon!)
 
-- **Easy Login & Secure Access**  
-  Simple, secure authentication for every user.
+![InsightHub Demo](assets/insighthub-demo.gif)
 
-- **One-Click Data Upload**  
-  Drag-and-drop Excel/CSV files—no more copy-paste headaches.
-
-- **Smart Insights Dashboard**  
-  Auto-detects columns, highlights top products, trends, and actionable recommendations.
-
-- **Sales Forecasting**  
-  Predicts future sales, detects festival spikes, and helps with inventory planning using ML models (Prophet, ARIMA, Exponential Smoothing).
-
-- **Alert Centre**  
-  Real-time alerts for low stock, sales anomalies, and slow-moving items.
-
-- **History & Audit Trail**  
-  Track upload history and review past data.
-
-- **Simple, Powerful UX**  
-  Clean interface focused on usability—built for shopkeepers, not just techies.
-
----
+> *Full walkthrough video will be added soon!*
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Streamlit, HTML/CSS/JS (custom landing page)
-- **Backend:** Python
-- **ML/Analytics:** Prophet, ARIMA, Exponential Smoothing, Pandas, Scikit-learn
-- **Visualization:** Plotly, Streamlit native charts
-- **Authentication:** Custom (hashed passwords)
-- **Deployment:** Localhost (Streamlit), ready for cloud
+| Layer        | Tools Used                                                              |
+|--------------|-------------------------------------------------------------------------|
+| 🖥️ Frontend  | Streamlit, HTML/CSS/JS (Custom Landing Page)                            |
+| 🧠 Backend   | Python, Pandas, NumPy, Scikit-learn                                     |
+| 📊 ML Models | Prophet, ARIMA, Exponential Smoothing                                   |
+| 📈 Charts    | Plotly, Streamlit native visualizations                                 |
+| 🔐 Auth      | Custom login system with password hashing                               |
+| 🚀 Deploy    | Localhost (Streamlit), Cloud-ready for Render/Heroku                    |
+---
+
+## ▶️ Run the App with Streamlit:
+
+```bash
+# Clone the repository
+git clone https://github.com/ayushmane247/InsightHub.git
+cd InsightHub
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+streamlit run App.py
+````
+
+⚠️ **Make sure Python 3.9+ is installed.**
 
 ---
 
-## 📦 Installation
+## 💡 Our Vision
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ayushmane247/InsightHub.git
-   cd InsightHub
-   ```
+We’re building InsightHub as a **long-term product**, not just a hackathon prototype.
+A simple, no-nonsense alternative to complex, expensive shop software.
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the app:**
-   ```bash
-   streamlit run App.py
-   ```
-
-4. **Open the landing page (optional):**
-   - Open `frontend/index.html` in your browser for a visual intro.
+> **Simple UI. Real impact.**
+> For real people running real shops.
 
 ---
 
-## 👥 Team
+## Call To Action
 
-- **Ayush** (Tech Lead, Vision)
-- **Shreya** (Problem Discovery, Storytelling)
-- **Pushkar** (Insights Module)
-- **Deep** (Forecasting Module)
-- **Navaj** (Demo, UX)
-- **Amruta** (Ideation, Features)
-- **Aprana** (Conclusion, QA)
+⭐ Star this repo if you believe in empowering local businesses with tech.
 
 ---
 
-## 🌟 Future Vision
+🤝 Contributing
+We’d love to have you as part of our journey!
+Whether you're a developer, designer, or just someone with ideas — your contribution means a lot to us. 💙
 
-InsightHub aims to **replace traditional shop software** with a single, powerful platform. Planned features include:
-- Direct inventory management (add/edit in-app)
-- Integrated billing and invoicing
-- Supplier management
-- AI-powered assistant for shopkeepers
-- Real-time notifications and recommendations
+Here’s how you can get involved:
 
----
+Fork this repo
 
-## 📸 Screenshots
+Create a branch for your changes
 
-> _Add screenshots/gifs of your app in action here!_
+Open a PR with a short note about what you added or fixed
 
----
-
-## 🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
+Even a suggestion helps.
+Thanks for stopping by and considering to build InsightHub with us. 🙌
 ---
 
 ## 📄 License
 
-MIT License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+This project is open-sourced under the **MIT License**.
 
 ---
 
-## 🔗 Links
+## ❤️ Made With Love By
 
--[Linkedin](https://www.linkedin.com/in/ayush-mane-92237132b/)
+### 👤 [Ayush Mane](https://github.com/ayushmane247)
 
-- [GitHub Repository](https://github.com/ayushmane247/InsightHub)
+> Passionately building tech that solves real-world problems.
 
 ---
 
-> “InsightHub—because life’s too short for boring dashboards!”
-
-```
-This is a sample README file for a project. You can customize it to fit your project's needs
+## 👥 Team InsightHub
+> *We built InsightHub with empathy, energy, and precision to serve shopkeepers across India.*
