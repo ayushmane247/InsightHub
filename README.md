@@ -3,7 +3,7 @@
 
 **A Smart, Storytelling Data Platform for Shopkeepers**
 
-[![GitHub](https://img.shields.io/github/stars/ayush942066/InsightHub?style=social)](https://github.com/ayush942066)
+[![GitHub](https://img.shields.io/github/stars/ayush942066/InsightHub?style=social)](https://github.com/ayushmane247)
 
 ---
 
@@ -59,7 +59,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/ayush942066/InsightHub.git
+   git clone https://github.com/ayushmane247/InsightHub.git
    cd InsightHub
    ```
 
@@ -123,7 +123,7 @@ MIT License
 
 -[Linkedin](https://www.linkedin.com/in/ayush-mane-92237132b/)
 
-- [GitHub Repository](https://github.com/ayush942066/InsightHub)
+- [GitHub Repository](https://github.com/ayushmane247/InsightHub)
 
 ---
 
