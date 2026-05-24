@@ -13,6 +13,7 @@
 
 ## 🚀 Overview
 
+
 **InsightHub** is a powerful, intuitive, and smart analytics + forecasting tool built for **local shopkeepers and small businesses**.
 
 No Excel chaos.  
@@ -47,11 +48,13 @@ InsightHub is more than a project — it's a **mission** to bring data intellige
 
 ---
 
-## 🖼️ Live Demo (Coming Soon!)
+## 🖼️ Live Demo
 
-![InsightHub Demo](assets/insighthub-demo.gif)
 
-> *Full walkthrough video will be added soon!*
+https://github.com/user-attachments/assets/00f7d5a1-dcb9-4c0b-960e-61513962e125
+
+
+
 
 ## 🛠️ Tech Stack
 
@@ -65,22 +68,50 @@ InsightHub is more than a project — it's a **mission** to bring data intellige
 | 🚀 Deploy    | Localhost (Streamlit), Cloud-ready for Render/Heroku                    |
 ---
 
-## ▶️ Run the App with Streamlit:
-
-```bash
-# Clone the repository
-git clone https://github.com/ayushmane247/InsightHub.git
-cd InsightHub
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the app
-streamlit run App.py
-````
-
-⚠️ **Make sure Python 3.9+ is installed.**
-
+ 
+## 📦 Installation
+ 
+> ⚠️ **Make sure Python 3.9+ is installed** before you begin.  
+> 📖 **New to environments or using Anaconda?** Check the full [Environment Setup Guide](ENVIRONMENT_SETUP.md) — covers venv, conda, and VS Code auto-activation step by step.
+ 
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ayushmane247/InsightHub.git
+   cd InsightHub
+   ```
+ 
+2. **Open the landing page:**
+   - navigate to the frontend folder and open `capstone.html` in your browser:
+   ```bash
+   cd frontend
+   start capstone.html        # Windows
+   open capstone.html         # macOS
+   xdg-open capstone.html     # Linux
+   ```
+ 
+3. **Create a virtual environment:**
+   ```bash
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+ 
+   # On Windows
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+ 
+4. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+ 
+5. **Run the app:**
+   ```bash
+   streamlit run App.py
+   ```
+ 
+> 💡 To deactivate the virtual environment when done, simply run `deactivate`.
+ 
 ---
 
 ## 💡 Our Vision
